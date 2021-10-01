@@ -14,8 +14,11 @@ J=[
 
 function testinverse(X,Y)
     if X*Y == eye(X), then
-        mprintf YASS,
+        disp('YES'),
     else,
-        mprintf NOOO,
+        disp('NO'),
     end
 endfunction
+
+testinverse(J,J)
+testinverse(J,A)
