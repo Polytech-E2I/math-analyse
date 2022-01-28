@@ -1,20 +1,23 @@
-n = 10
+g_n = 10
 
-a = 0
-b = 1
+g_a = 0
+g_b = 1
 
+
+function y = dArctan(x)
+    y = 1./(1+x^2)
+endfunction
 
 function y = Atester(x)
-    y = 1./(1+x^2)
-//    y = sqrt(x)
+    y = sqrt(x)
 endfunction
 
 function y = IntAtester(a, b)
-    y = integrate("1/(1+x^2)", "x", a, b)
+    y = intg(a, b, Atester)
 endfunction
 
 function h = H(a, b, n)
-    h = (b-a)/n
+    h = (b-a)./n
 endfunction
 
 function xk = Xk(k, n, a, b)
@@ -97,10 +100,41 @@ function I = Simpson(f, a, b, n)
 endfunction
 
 printf("\n")
-printf("Avec %d intervalles entre %d et %d :\n\n", n, a, b)
-printf("Rectangle Gauche :\t%f\n", RectangleGauche(Atester, a, b, n))
-printf("Rectangle Droite :\t%f\n", RectangleDroite(Atester, a, b, n))
-printf("Point Milieu :\t\t%f\n", PointMilieu(Atester, a, b, n))
-printf("Trapèzes :\t\t%f\n", Trapezes(Atester, a, b, n))
-printf("Simpson :\t\t%f\n", Simpson(Atester, a, b, n))
-printf("Intégrale originale :\t%f\n", IntAtester(a, b))
+printf("Avec %d intervalles entre %d et %d :\n\n", g_n, g_a, g_b)
+
+printf("h\t= %f\n", H(g_a, g_b, g_n))
+printf("h^2\t= %f\n", H(g_a, g_b, g_n)^2)
+printf("h^4\t= %f\n", H(g_a, g_b, g_n)^4)
+
+printf("\n")
+
+printf("Rectangle Gauche :\t%f\n", RectangleGauche(Atester, g_a, g_b, g_n))
+printf("Rectangle Droite :\t%f\n", RectangleDroite(Atester, g_a, g_b, g_n))
+printf("Point Milieu :\t\t%f\n", PointMilieu(Atester, g_a, g_b, g_n))
+printf("Trapèzes :\t\t%f\n", Trapezes(Atester, g_a, g_b, g_n))
+printf("Simpson :\t\t%f\n", Simpson(Atester, g_a, g_b, g_n))
+printf("Intégrale originale :\t%f\n", IntAtester(g_a, g_b))
+
+
+function VerifErreur(func, a, b, power)
+    Narray = [10 50 100 500 1000 5000]
+    Harray = (b-a)./Narray
+    Erreur = zeros(Harray)
+
+    for i=1:length(Harray),
+        Erreur(i) = abs( IntAtester(a, b) - func(Atester, a, b, Narray(i)) )
+    end
+
+    plot(Harray, Erreur./(Harray^power))
+endfunction
+
+subplot(2,2,1)
+VerifErreur(RectangleGauche, g_a, g_b, 1)
+//VerifErreur(RectangleDroite, g_a, g_b, 1)
+subplot(2,2,2)
+VerifErreur(PointMilieu, g_a, g_b, 2)
+subplot(2,2,3)
+VerifErreur(Trapezes, g_a, g_b, 2)
+subplot(2,2,4)
+VerifErreur(Simpson, g_a, g_b, 4)
+
