@@ -1,4 +1,4 @@
-g_n = 10
+g_n = 100
 
 g_a = 0
 g_b = 1
@@ -9,7 +9,7 @@ function y = dArctan(x)
 endfunction
 
 function y = Atester(x)
-    y = sqrt(x)
+    y = dArctan(x)
 endfunction
 
 function y = IntAtester(a, b)
