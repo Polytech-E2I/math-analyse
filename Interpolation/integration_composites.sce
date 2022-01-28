@@ -1,4 +1,4 @@
-n = 20
+n = 10
 
 a = 0
 b = 1
@@ -96,6 +96,8 @@ function I = Simpson(f, a, b, n)
     I = H(a, b, n) / 6 * ( f(Xk(0)) + f(Xk(n)) + 2 * sum1 + 4 * sum2 )
 endfunction
 
+printf("\n")
+printf("Avec %d intervalles entre %d et %d :\n\n", n, a, b)
 printf("Rectangle Gauche :\t%f\n", RectangleGauche(Atester, a, b, n))
 printf("Rectangle Droite :\t%f\n", RectangleDroite(Atester, a, b, n))
 printf("Point Milieu :\t\t%f\n", PointMilieu(Atester, a, b, n))
