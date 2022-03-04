@@ -9,7 +9,7 @@ function y = dArctan(x)
 endfunction
 
 function y = Atester(x)
-    y = dArctan(x)
+    y = sqrt(x)
 endfunction
 
 function y = IntAtester(a, b)
@@ -20,8 +20,8 @@ function h = H(a, b, n)
     h = (b-a)./n
 endfunction
 
-function xk = Xk(k, n, a, b)
-    xk = a + k * H(a, b, n)
+function xk = Xk(k, a, b, n)
+    xk = round(a + k * H(a, b, n))
 endfunction
 
 function I = RectangleGauche(f, a, b, n)
@@ -67,13 +67,13 @@ function I = Trapezes(f, a, b, n)
     
     I = H(a, b, n) * sum
 */
-    sum = 0
+    sum1 = 0
     
     for k = 1:n-1,
-        sum = sum + f(Xk(k))
+        sum1 = sum1 + f(Xk(k))
     end
     
-    I = H(a, b, n) / 2 * ( f(Xk(0)) + f(Xk(n)) + 2 * sum )
+    I = H(a, b, n) / 2 * ( f(Xk(0)) + f(Xk(n)) + 2 * sum1 )
 endfunction
 
 function I = Simpson(f, a, b, n)
@@ -87,17 +87,18 @@ function I = Simpson(f, a, b, n)
     I = H(a, b, n) * sum / 6
 */
     sum1 = 0
-    for k = 1:n-1,
-        sum1 = sum1 + f(Xk(k))
+    for k = 2:n,
+        sum1 = sum1 + f(Xk(k, a, b, n))
     end
     
     sum2 = 0
-    for k = 0:n-1,
-        sum2 = sum2 + f( (Xk(k) + Xk(k+1)) / 2 )
+    for k = 1:n,
+        sum2 = sum2 + f( (Xk(k, a, b, n) + Xk(k+1, a, b, n)) / 2 )
     end
     
-    I = H(a, b, n) / 6 * ( f(Xk(0)) + f(Xk(n)) + 2 * sum1 + 4 * sum2 )
+    I = H(a, b, n) / 6 * ( f(Xk(1, a, b, n)) + f(Xk(n+1, a, b, n)) + 2 * sum1 + 4 * sum2 )
 endfunction
+
 
 printf("\n")
 printf("Avec %d intervalles entre %d et %d :\n\n", g_n, g_a, g_b)
