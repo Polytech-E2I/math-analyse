@@ -7,7 +7,10 @@ Pour pouvoir approcher la valeur de $ln(9)$, on peut utiliser une méthode de r�
 
 $$ e^x - 9 = 0 $$
 
-Son résultat, $ln(9)$, peut donc être approché par une méthode telle que celle de la dichotomie ou encore celle de Newton. Les résultats sont, avec un $\epsilon = 10^{-4}$ :
+![Graphe de f(x)](Exo01.png)
+
+
+Son résultat, $ln(9)$, peut donc être approché par une méthode telle que celle de la dichotomie ou encore celle de Newton. En traçant l'allure de $f$, on remarque que la fonction s'annule près de $x = 2.2$, on va donc utiliser l'intervalle $[2 ; 3]$ pour la méthode de la dichotomie et $x_0 = 2$ pour la méthode de Newton. Les résultats sont, avec un $\epsilon = 10^{-4}$ :
 
 * Dichotomie : $x = 2.197235$
 * Newton : $x = 2.197227$
@@ -39,11 +42,13 @@ Intégrale originale :	0.250000
 
 ## Exercice 3
 
-Il faut donc que l'on résolve l'équation suivante :
+Il faut que l'on résolve l'équation suivante :
 
-$$ \displaystyle{\frac{e}{3}t_i e^{\frac{-t_i}{3}} - 0.25 = 0} $$
+$$ \displaystyle{f(x) = \frac{e}{3}x e^{\frac{-x}{3}} - 0.25 = 0} $$
 
-En traçant l'allure de la courbe, qui part de 0 mg/ml à $t = 0$, on voit qu'elle est croissante puis décroissante, avec un maximum aux alentours de $t = 3$ heures et une courbe qui s'approche beaucoup de 0 à partir de $t = 20$ heures. Si l'on souhaite utiliser la dichotomie, on peut donc se restreindre à l'intervalle $[3 ; 20]$. Si l'on souhaite utiliser la méthode de Newton, on peut choisir un $x_0 = 5$. Les résultats sont :
+![Graphe de f(x)](Exo03.png)
+
+En traçant l'allure de $f$, on voit qu'elle est croissante puis décroissante, avec un maximum aux alentours de $t = 3$ heures et une courbe qui semble repasser sous 0 à partir de $t = 11$ heures. Si l'on souhaite utiliser la dichotomie, on peut donc se restreindre à l'intervalle $[3 ; 20]$. Si l'on souhaite utiliser la méthode de Newton, on peut choisir un $x_0 = 11$. Les résultats sont :
 
 * Dichotomie : $x = 11.077925$
 * Newton : $x = 11.077571$
@@ -54,9 +59,11 @@ Cela semble effectivement correspondre à l'allure de la courbe, et signifie qu'
 
 Pour estimer la valeur de $\sqrt[3]{16}$, on peut essayer de résoudre l'équation suivante :
 
-$$ x^3 - 16 = 0 $$
+$$ f(x) = x^3 - 16 = 0 $$
 
-En traçant l'allure de la courbe, on remarque que la fonction s'annule près de $x = 2.5$, on va donc utiliser l'intervalle $[2 ; 3]$ pour la méthode de la dichotomie et $x_0 = 2$ pour la méthode de Newton. Les résultats sont :
+![Graphe de f(x)](Exo04.png)
+
+En traçant l'allure de $f$, on remarque que la fonction s'annule près de $x = 2.5$, on va donc utiliser l'intervalle $[2 ; 3]$ pour la méthode de la dichotomie et $x_0 = 2$ pour la méthode de Newton. Les résultats sont :
 
 * Dichotomie : $x = 2.519867$
 * Newton : $x = 2.519842$
@@ -71,3 +78,5 @@ Pour répondre à cette question, on va utiliser la technique de l'interpolation
 * Newton : $U^* = 4.5 V$ et $t^* = 2.55 s$
 
 Les deux méthodes donnent des résultats identiques, et indiquent un pic de tension de 4.5 V qui survient à 2.55 secondes.
+
+![Mesures et interpolations](Exo05.png)
