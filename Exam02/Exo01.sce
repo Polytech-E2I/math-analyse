@@ -37,14 +37,24 @@ function y = df(x)
     y = exp(x)
 endfunction
 
+abscisses = 0:0.1:5
+ordonnees = f(abscisses)
+plot(abscisses, f(abscisses))
+xlabel("x")
+ylabel("f(x)")
+title("$f(x) = e^x - 9$")
+
 epsilon = 0.0001
 
 printf("### DICHOTOMIE\n")
 global VResult
 
+a = 2
+b = 3
+
 VResult = []
-printf("f(x) = 0 dans [1;10]\tepsilon = %6.4f #### x = %f\n", epsilon, Dichotomie(f, 1, 3, epsilon))
-VResult_dichf = VResult
+printf("f(x) = 0 dans [%d;%d]\tepsilon = %6.4f #### x = %f\n", a, b, epsilon, Dichotomie(f, a, b, epsilon))
+VResult_dich = VResult
 
 printf("### NEWTON\n")
 x0 = 5

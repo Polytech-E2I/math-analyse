@@ -31,11 +31,18 @@ function S = Newton(f, df, x0, epsilon)
 endfunction
 
 function y = f(x)
-    y = x*x*x - 16
+    y = x.*x.*x - 16
 endfunction
 function y = df(x)
-    y = 3*x*x
+    y = 3.*x.*x
 endfunction
+
+abscisses = 0:0.1:5
+ordonnees = f(abscisses)
+plot(abscisses, f(abscisses))
+xlabel("x")
+ylabel("f(x)")
+title("$f(x) = x^3 - 16$")
 
 epsilon = 0.0001
 

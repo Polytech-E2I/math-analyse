@@ -31,11 +31,18 @@ function S = Newton(f, df, x0, epsilon)
 endfunction
 
 function y = f(x)
-    y = (exp(1)/3) * x * exp(-x / 3) - 0.25
+    y = (exp(1)/3) .* x .* exp(-1.*x ./ 3) - 0.25
 endfunction
 function y = df(x)
-    y = ((exp(1)/3) - (exp(1)/9)*x) * exp(-x / 3)
+    y = ((exp(1)/3) - (exp(1)/9).*x) * exp(-1.*x ./ 3)
 endfunction
+
+abscisses = 0:0.1:20
+ordonnees = f(abscisses)
+plot(abscisses, f(abscisses))
+xlabel("x")
+ylabel("f(x)")
+title("$f(x) = \frac{e}{3}x e^{\frac{-x}{3}} - 0.25$")
 
 epsilon = 0.0001
 
@@ -49,7 +56,7 @@ printf("f(x) = 0 dans [%d;%d]\tepsilon = %6.4f #### x = %f\n", a, b, epsilon, Di
 VResult_dich = VResult
 
 printf("### NEWTON\n")
-x0 = 5
+x0 = 11
 
 VResult = []
 printf("f(x) = 0 avec x0 = %3.1f\tepsilon = %6.4f\t#### x = %f\n", x0, epsilon, Newton(f, df, x0, epsilon))
