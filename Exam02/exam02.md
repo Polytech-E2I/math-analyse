@@ -1,5 +1,10 @@
-# Analyse Numérique - TP 2
-*Robin SHAMSNEJAD - Polytech E2I4*
+---
+title:  Analyse Numérique TP2 - E2I4 2022
+author: Robin SHAMSNEJAD
+date: 2022-03-29
+geometry: margin=3cm
+---
+
 
 ## Exercice 1
 
@@ -7,10 +12,10 @@ Pour pouvoir approcher la valeur de $ln(9)$, on peut utiliser une méthode de r�
 
 $$ e^x - 9 = 0 $$
 
-![Graphe de f(x)](Exo01.png)
+![Graphe de f(x)](Exo01.png){#fig:exo01}
 
 
-Son résultat, $ln(9)$, peut donc être approché par une méthode telle que celle de la dichotomie ou encore celle de Newton. En traçant l'allure de $f$, on remarque que la fonction s'annule près de $x = 2.2$, on va donc utiliser l'intervalle $[2 ; 3]$ pour la méthode de la dichotomie et $x_0 = 2$ pour la méthode de Newton. Les résultats sont, avec un $\epsilon = 10^{-4}$ :
+Son résultat, $ln(9)$, peut donc être approché par une méthode telle que celle de la dichotomie ou encore celle de Newton. En traçant l'allure de $f$ ([@fig:exo01]), on remarque que la fonction s'annule près de $x = 2.2$, on va donc utiliser l'intervalle $[2 ; 3]$ pour la méthode de la dichotomie et $x_0 = 2$ pour la méthode de Newton. Les résultats sont, avec un $\epsilon = 10^{-4}$ :
 
 * Dichotomie : $x = 2.197235$
 * Newton : $x = 2.197227$
@@ -46,9 +51,9 @@ Il faut que l'on résolve l'équation suivante :
 
 $$ \displaystyle{f(x) = \frac{e}{3}x e^{\frac{-x}{3}} - 0.25 = 0} $$
 
-![Graphe de f(x)](Exo03.png)
+![Graphe de f(x)](Exo03.png){#fig:exo03}
 
-En traçant l'allure de $f$, on voit qu'elle est croissante puis décroissante, avec un maximum aux alentours de $t = 3$ heures et une courbe qui semble repasser sous 0 à partir de $t = 11$ heures. Si l'on souhaite utiliser la dichotomie, on peut donc se restreindre à l'intervalle $[3 ; 20]$. Si l'on souhaite utiliser la méthode de Newton, on peut choisir un $x_0 = 11$. Les résultats sont :
+En traçant l'allure de $f$ ([@fig:exo03]), on voit qu'elle est croissante puis décroissante, avec un maximum aux alentours de $t = 3$ heures et une courbe qui semble repasser sous 0 à partir de $t = 11$ heures. Si l'on souhaite utiliser la dichotomie, on peut donc se restreindre à l'intervalle $[3 ; 20]$. Si l'on souhaite utiliser la méthode de Newton, on peut choisir un $x_0 = 11$. Les résultats sont :
 
 * Dichotomie : $x = 11.077925$
 * Newton : $x = 11.077571$
@@ -61,9 +66,9 @@ Pour estimer la valeur de $\sqrt[3]{16}$, on peut essayer de résoudre l'équati
 
 $$ f(x) = x^3 - 16 = 0 $$
 
-![Graphe de f(x)](Exo04.png)
+![Graphe de f(x)](Exo04.png){#fig:exo04}
 
-En traçant l'allure de $f$, on remarque que la fonction s'annule près de $x = 2.5$, on va donc utiliser l'intervalle $[2 ; 3]$ pour la méthode de la dichotomie et $x_0 = 2$ pour la méthode de Newton. Les résultats sont :
+En traçant l'allure de $f$ ([@fig:exo04]), on remarque que la fonction s'annule près de $x = 2.5$, on va donc utiliser l'intervalle $[2 ; 3]$ pour la méthode de la dichotomie et $x_0 = 2$ pour la méthode de Newton. Les résultats sont :
 
 * Dichotomie : $x = 2.519867$
 * Newton : $x = 2.519842$
@@ -77,6 +82,6 @@ Pour répondre à cette question, on va utiliser la technique de l'interpolation
 * Lagrange : $U^* = 4.5 V$ et $t^* = 2.55 s$
 * Newton : $U^* = 4.5 V$ et $t^* = 2.55 s$
 
-Les deux méthodes donnent des résultats identiques, et indiquent un pic de tension de 4.5 V qui survient à 2.55 secondes.
+Les deux méthodes donnent des résultats identiques ([@fig:exo05]), et indiquent un pic de tension de 4.5 V qui survient à 2.55 secondes.
 
-![Mesures et interpolations](Exo05.png)
+![Mesures et interpolations](Exo05.png){#fig:exo05}
