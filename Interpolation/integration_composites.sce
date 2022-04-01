@@ -1,4 +1,4 @@
-g_n = 100
+g_n = 11
 
 g_a = 0
 g_b = 1
@@ -9,6 +9,7 @@ function y = dArctan(x)
 endfunction
 
 function y = Atester(x)
+//    y = abs(x*x - 0.25)
     y = sqrt(x)
 endfunction
 
