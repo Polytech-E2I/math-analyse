@@ -1,6 +1,6 @@
-clf
-close
-clear
+//clf
+//close
+//clear
 
 function y = f2(x)
     y = exp(-x) + x
